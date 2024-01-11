@@ -1,4 +1,5 @@
-﻿using Agency.DAL.Context;
+﻿using Agency.Business.ViewModels;
+using Agency.DAL.Context;
 using Agency.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -17,13 +18,11 @@ namespace Agency.MVC.Controllers
 
         public IActionResult Index()
         {
-            HomeVM homevm = new HomeVM()
+            HomeVm homevm = new HomeVm()
             {
-                features = _context.Portfolios.ToList(),
+                portfolios = _context.Portfolios.ToList(),
             };
             return View(homevm);
         }
-
-
     }
 }
